@@ -1,10 +1,15 @@
 @import "./basic/reset.scss";
 @import "./basic/variables.scss";
 @import "./basic/layout.scss";
-@import "./header.scss";
 
 .canvas {
   background-color: $grey;
   width: 100%;
   height: 300px;
+  overflow: hidden;
+}
+
+@keyframes square-fall {
+  from { top: 0%; }
+  to { top: 100% }
 }
