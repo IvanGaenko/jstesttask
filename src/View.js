@@ -20,7 +20,13 @@ class View {
     document.querySelector(`#${id}`).remove();
   }
   
-  static updateScore() {}
+  static updateScore(score) {
+    document.querySelector(DOM_ELEMENTS.score).innerHTML = score;
+  }
+  
+  static updateButton(isPlayed) {
+    document.querySelector(DOM_ELEMENTS.btn).innerHTML = isPlayed ? "Stop" : "Play";
+  }
 }
 
 export default View;
