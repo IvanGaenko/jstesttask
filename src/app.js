@@ -1,5 +1,7 @@
 import View, { DOM_ELEMENTS } from "./View";
 import Square from "./Square";
+import Supersquare from "./Supersquare";
+import Random from "./Random";
 
 class Application {
   constructor() {
@@ -9,8 +11,8 @@ class Application {
     this.squareWidth = 35;
     this.isPlayed = false;
     this.timeout;
-    this.timeKoefOne = 0.5;
-    this.timeKoefTwo = 2;
+    this.random = new Random();
+    this.squareArr = [Square, Supersquare];
   }
   
   init() {
@@ -45,23 +47,25 @@ class Application {
   squareGen() {
     this.squareId++;
     const id = `square-${this.squareId}`;
-    const time = this.timeKoefOne + (Math.random() * this.timeKoefTwo);
+    this.random.getSpeed();
+    this.random.getLeftOffset(this.canvasWidth, this.squareWidth);
+    this.random.getColor();
     
-    if (this.score >= 10) {
-      if (this.timeKoefOne !== 0) {
-        this.timeKoefOne = 0;
-      }
-      if (this.timeKoefTwo !== 1) {
-        this.timeKoefTwo = 1;
-      }
-    }
+    const params = {
+      id,
+      squareSize: this.squareWidth,
+      speed: this.random.speed,
+      left: this.random.leftOffset,
+      color: this.random.color
+    };
     
-    const square = new Square(id, this.canvasWidth, this.squareWidth).render();
+    const square = this.random.getSquare(this.squareArr, params).render();
     View.addSquare(square);
     this.toggleSquareEvents(eventType.add, id);
     
     if (this.isPlayed) {
-      this.timeout = setTimeout(() => this.squareGen(), time*1000);
+      this.random.getAppear(this.score);
+      this.timeout = setTimeout(() => this.squareGen(), this.random.appear*1000);
     }
   }
   
