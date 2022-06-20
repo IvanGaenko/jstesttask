@@ -1,0 +1,59 @@
+@mixin light-mode {
+  background: linear-gradient(0deg, rgba( $pink, 1 ) 0%, rgba( $light-blue, 1 ) 58%);
+  
+  .canvas {
+    background: rgba( $white, 0.35);
+    border: 1px solid rgba( $white, 0.18 );
+    box-shadow: 0 8px 32px 0 rgba( $blue, 0.37 );
+  }
+  
+  .btn, .score {
+    //color: rgba( 255, 255, 255, 0.9 );
+    color: rgba( $white, 0.9 );
+  }
+  
+  //.score {
+    //color: rgba( 255, 255, 255, 0.9 );
+  //}
+  
+  .slider {
+    border: 1px solid rgba( $white, 0.9 );
+  }
+  
+  .slider:before {
+    background: rgba( $white, 0.7);
+    border: 1px solid rgba( $white, 0.9 );
+  }
+}
+
+@mixin dark-mode {
+  background: linear-gradient(0deg, rgba($dark-blue,1) 0%, rgba($dark-purple,1) 100%);
+  
+  .canvas {
+    background: linear-gradient(0deg, rgba($black-purple,1) 0%, rgba($mid-purple,1) 100%);
+    border: 1px solid rgba( $black, 0.18 );
+    box-shadow: 0 8px 32px 0 rgba( $black, 0.37 );
+  }
+  
+  .btn, .score {
+    color: rgba( $white, 0.4 );
+  }
+  
+  .slider {
+    border: 1px solid rgba( $white, 0.4 );
+  }
+  
+  .slider:before {
+    background: rgba($white, 0.3);
+    border: 1px solid rgba( $white, 0.4 );
+  }
+}
+
+
+.light-mode {
+  @include light-mode;
+}
+
+.dark-mode {
+  @include dark-mode;
+}

@@ -8,16 +8,18 @@ class Application {
     this.score = 0;
     this.squareId = 0;
     this.canvasWidth = 0;
-    this.squareWidth = 35;
+    this.squareWidth = 40;
     this.isPlayed = false;
     this.timeout;
     this.random = new Random();
     this.squareArr = [Square, Supersquare];
+    this.darkMode = false;
   }
   
   init() {
     this.getInitValues();
     this.setupEventListeners();
+    this.updateScore(0);
   }
   
   getInitValues() {
@@ -28,6 +30,9 @@ class Application {
   setupEventListeners() {
     document.querySelector(DOM_ELEMENTS.btn).addEventListener("click", () => {
       this.toggleGame();
+    });
+    document.querySelector(DOM_ELEMENTS.checkbox).addEventListener("click", (e) => {
+      this.updateTheme();
     });
   }
   
@@ -100,6 +105,11 @@ class Application {
   updateScore(score) {
     score === 0 ? this.score = 0 : this.score += score;
     View.updateScore(this.score);
+  }
+  
+ updateTheme() {
+    this.darkMode = !this.darkMode;
+    View.updateTheme(this.darkMode);
   }
 }
 

@@ -1,0 +1,27 @@
+.canvas {
+  background: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  width: 100%;
+  min-height: 300px;
+  display:flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+@keyframes square-fall {
+  from { top: 0%; }
+  to { top: 100%; }
+}
+
+.superSquare:before {
+  content: "\2B50";
+}
+
+.superSquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

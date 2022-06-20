@@ -1,60 +1,29 @@
 body {
   font-family: $mainFont;
-  //display: flex;
-  //flex-direction: column;
+  display: flex;
+  flex: 1;
   min-height: 100vh;
-  background-color: $transparentGrey;
+  transition: all 0.5s;
 }
 
 .wrapper {
-  max-width: 1050px;
+  min-width: 200px;
   width: 100%;
-  padding: 0 15px;
+  padding: 20px;
   margin: 0 auto;
+  display:flex;
+  flex-direction: column;
 }
 
 header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
+  position: relative;
 }
 
-.header-content {
+main {
   display:flex;
-}
-
-input,
-input::placeholder {
-  color: $black;
-  font-size: 14px;
-}
-
-select {
-  padding-left: 10px;
-}
-
-.btn {
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: 0;
-  padding: 22px 30px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height: 1.33;
-  letter-spacing: 1px;
-  text-align: center;
-  white-space: nowrap;
-  touch-action: manipulation;
-  cursor: pointer;
-  color: $white;
-  outline: snow;
-  height: 20px;
-
-  &:hover {
-    background-color: #8be2e5;
-    transition: all 0.35s ease-in-out;
-  }
+  flex: 1;
 }

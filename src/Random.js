@@ -5,6 +5,7 @@ class Random {
     this.speed = 0;
     this.leftOffset = 0;
     this.color = "";
+    this.colorArr = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
     this.appearKoef = [0.1, 0.25, 0.5, 0.75, 0.9];
   }
   
@@ -39,7 +40,7 @@ class Random {
   }
   
   getSpeed() {
-    this.speed = this.getSec(0.6, 1.5);
+    this.speed = this.getSec(1, 1.5);
   }
   
   getSquare(squareArr, params) {
@@ -52,7 +53,8 @@ class Random {
   }
   
   getColor() {
-    this.color = Math.floor(Math.random()*16777215).toString(16);
+    const colorIndex = Math.floor(Math.random() * this.colorArr.length);
+    this.color = this.colorArr[colorIndex];
   }
 }
 

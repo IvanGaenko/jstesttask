@@ -1,7 +1,8 @@
 export const DOM_ELEMENTS = {
   canvas: ".canvas",
   score: ".score",
-  btn: ".btn"
+  btn: ".btn",
+  checkbox: ".checkbox"
 };
 
 class View {
@@ -26,6 +27,10 @@ class View {
   
   static updateButton(isPlayed) {
     document.querySelector(DOM_ELEMENTS.btn).innerHTML = isPlayed ? "Stop" : "Play";
+  }
+  
+  static updateTheme(theme) {
+    document.querySelector("body").className = theme === true ? "dark-mode" : "light-mode";
   }
 }
 
